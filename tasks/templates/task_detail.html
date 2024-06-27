@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Task Details</h1>
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description }}</p>
+        {% if task.completed %}
+            <p class="text-success">Status: Completed</p>
+        {% else %}
+            <p class="text-warning">Status: In Progress</p>
+        {% endif %}
+        <a href="{% url 'edit_task' task.id %}" class="btn btn-primary">Edit Task</a>
+        <a href="{% url 'task_list' %}" class="btn btn-secondary mt-3">Back to Task List</a>
+    </div>
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
